@@ -7,17 +7,21 @@ public class Main {
 
         System.out.println("Selamat Datang di Program Perekrutan Karyawan");
         System.out.println("=============================================");
-        System.out.println("Pelamar akan diarahkan untuk memasukkan nama, umur dan posisi yang akan dilamar.");
+        System.out.println("Pelamar akan diarahkan untuk memasukkan nama, tanggal lahir dan posisi yang akan dilamar.");
         System.out.println("Untuk menentukan apakah pelamar memenuhi kriteria sesuai posisi yang dilamar atau tidak atau tidak.");
         System.out.print("Silahkan masukkan nama anda : ");
         String nama = input.nextLine();
 
-        System.out.print("Masukkan umur anda : ");
-        int umur = input.nextInt();
-        input.nextLine();
+        System.out.print("Masukkan tanggal lahir anda (YYYY-MM-DD) : ");
+        String tanggalLahir = input.nextLine();
 
         System.out.print("Masukkan posisi yang dilamar (Staff/Officer/Supervisor/Manager): ");
         String posisi = input.nextLine();
+
+        //Menghitung Umur Pelamar
+        LocalDate dob = LocalDate.parse (tanggalLahir);
+        LocalDate today = LocalDate.now();
+        int umur = Period.between(dob, today).getYears();
 
         System.out.print("\n");
         System.out.println("Berikut adalah hasilnya : ");
